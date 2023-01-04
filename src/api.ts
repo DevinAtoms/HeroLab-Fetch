@@ -131,7 +131,7 @@ class HLOApiClient {
     /**
      * Fetch implementation called by the API.
      *
-     * Defaults to the node-fetch implementation, can be overwritten by passing a function to the constructor.
+     * Defaults to the fetch implementation, can be overwritten by passing a function to the constructor.
      */
     private fetch: (input?: string | Request , init?: RequestInit) => Promise<Response> = fetch as unknown as HLOApiClient["fetch"];
 
