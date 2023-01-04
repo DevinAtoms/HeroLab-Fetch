@@ -1,5 +1,4 @@
 import { AcquireAccessTokenRequest, AcquireAccessTokenResponse, HLOApiRequest, HLOApiResponse, GetCharacterRequest, GetCharacterResponse, GetCharacterBulkRequest, GetCharacterBulkResponse, GetCastListRequest, GetCastListResponse } from './interactions';
-import fetch from 'node-fetch';
 import { ResultCode, Severity } from './constants.js';
 import { HLOApiError } from './error.js';
 

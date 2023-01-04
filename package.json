@@ -1,5 +1,5 @@
 {
-  "name": "hlo-api-client",
+  "name": "herolab-fetch",
   "version": "1.0.0",
   "description": "Access to the HeroLab Online API",
   "main": "lib/cjs/index.js",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdreier/hlo-api-client.git"
+    "url": "git+https://github.com/devinatoms/herolab-fetch.git"
   },
   "keywords": [
     "herolab",
@@ -30,15 +30,14 @@
   "author": "Martin Dreier <martin@martindreier.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mdreier/hlo-api-client/issues"
+    "url": "https://github.com/devinatoms/herolab-fetch.git"
   },
-  "homepage": "https://github.com/mdreier/hlo-api-client#readme",
+  "homepage": "https://github.com/devinatoms/herolab-fetch.git#readme",
   "devDependencies": {
     "@types/fetch-mock": "^7.3.3",
     "@types/fs-extra": "^9.0.11",
     "@types/inquirer": "^7.3.1",
     "@types/jasmine": "^3.6.9",
-    "@types/node-fetch": "^2.5.8",
     "@types/yargs": "^16.0.1",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
@@ -56,7 +55,6 @@
   },
   "dependencies": {
     "inquirer": "^8.0.0",
-    "node-fetch": "^3.1.1",
     "yargs": "^16.2.0"
   }
 }
