@@ -5,6 +5,10 @@ import { ExportFormat } from './export.js'
  */
 interface HLOApiRequest {
     /**
+     * Field to enable filtering requests by type when using a union
+     */
+    reqType?: string;
+    /**
      * Client-tool determined value that is parroted back in the response.
      */
     callerId?: number;
