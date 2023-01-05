@@ -1,5 +1,8 @@
-# Hero Lab Online API JavaScript Client
+## This is a forked version of [hlo-api-client](https://github.com/mdreier/hlo-api-client) created by [mdreier](https://github.com/mdreier) on GitHub. Currently the only difference is that I replaced node-fetch with just regular fetch for my own usage, and I may make further changes.
 
+### As it stands, 99% of this package is identical to the original [hlo-api-client](https://github.com/mdreier/hlo-api-client). I'd recommend using their package simply because they're a better coder than I am and I'm likely to break things and may or may not follow best practices.
+
+# Hero Lab Online API JavaScript Client
 This package is a JavaScript/TypeScript client for the Hero Lab Online API. It contains a fully typed interface for all methods exposed
 by the API and is ready for use with Node.js.
 

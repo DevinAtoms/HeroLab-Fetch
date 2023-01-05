@@ -1,7 +1,7 @@
 {
   "name": "herolab-fetch",
-  "version": "1.0.0",
-  "description": "Access to the HeroLab Online API",
+  "version": "1.0.1",
+  "description": "A fork of another HeroLab API package",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "type": "module",
