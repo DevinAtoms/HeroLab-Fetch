@@ -1,6 +1,17 @@
-import { AcquireAccessTokenRequest, AcquireAccessTokenResponse, HLOApiRequest, HLOApiResponse, GetCharacterRequest, GetCharacterResponse, GetCharacterBulkRequest, GetCharacterBulkResponse, GetCastListRequest, GetCastListResponse } from './interactions';
-import { ResultCode, Severity } from './constants.js';
-import { HLOApiError } from './error.js';
+import {
+    AcquireAccessTokenRequest,
+    AcquireAccessTokenResponse,
+    GetCastListRequest,
+    GetCastListResponse,
+    GetCharacterBulkRequest,
+    GetCharacterBulkResponse,
+    GetCharacterRequest,
+    GetCharacterResponse,
+    HLOApiRequest,
+    HLOApiResponse
+} from './interactions';
+import {ResultCode, Severity} from './constants.js';
+import {HLOApiError} from './error.js';
 
 /** Base URL for the Hero Lab Online API */
 const API_BASE_PATH = 'https://api.herolab.online/v1';
@@ -133,7 +144,7 @@ class HLOApiClient {
      *
      * Defaults to the fetch implementation, can be overwritten by passing a function to the constructor.
      */
-    private fetch: (input?: string | Request , init?: RequestInit) => Promise<Response> = fetch as unknown as HLOApiClient["fetch"];
+    private readonly fetch: (input?: string | Request , init?: RequestInit) => Promise<Response> = fetch as unknown as HLOApiClient["fetch"];
 
     /**
      * API configuration.
@@ -143,7 +154,7 @@ class HLOApiClient {
     /**
      * Create a new API instance.
      *
-     * @param userToken User token for the Hero Lab Online API.
+     * @param options
      * @param fetchInstance Fetch implementation to be used by this API instance.
      */
     constructor(options: APIConfiguration | string, fetchInstance?: HLOApiClient["fetch"]) {
@@ -174,7 +185,6 @@ class HLOApiClient {
      *
      * @param path API path with leading /
      * @param request Request data
-     * @param accessTokenRequired Access token is required for this request
      * @returns Response data
      */
     private async sendRequest(path: string, request: HLOApiRequest): Promise<HLOApiResponse> {
@@ -186,7 +196,6 @@ class HLOApiClient {
      *
      * @param path API path with leading /
      * @param request Request data
-     * @param accessTokenRequired Access token is required for this request
      * @returns Response data
      */
      private async sendRequestWithTokenHandling(path: string, request: HLOApiRequest): Promise<HLOApiResponse> {
@@ -280,7 +289,7 @@ class HLOApiClient {
                 elementToken: String(request)
             }
         }
-        return this.sendRequestWithTokenHandling('/character/get', request) as Promise<GetCharacterResponse>
+        return await this.sendRequestWithTokenHandling('/character/get', request) as GetCharacterResponse
     }
 
     /**
@@ -295,7 +304,7 @@ class HLOApiClient {
                 characters: request.map(elementToken => { return { elementToken } })
             }
         }
-        return this.sendRequestWithTokenHandling('/character/get-bulk', request) as Promise<GetCharacterBulkResponse>;
+        return await this.sendRequestWithTokenHandling('/character/get-bulk', request) as GetCharacterBulkResponse;
     }
 
     /**
@@ -338,7 +347,7 @@ class HLOApiClient {
                 campaignToken: String(request)
             }
         }
-        return this.sendRequestWithTokenHandling(path, request) as Promise<GetCastListResponse>;
+        return await this.sendRequestWithTokenHandling(path, request) as GetCastListResponse;
     }
 
     /**
