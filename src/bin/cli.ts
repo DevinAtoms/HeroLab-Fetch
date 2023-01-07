@@ -42,6 +42,7 @@ const Actions = {
 
 const TOOLNAME = "HeroLab Online CLI";
 
+// noinspection InfiniteLoopJS
 export default class HLOCli {
 
     /**
@@ -52,11 +53,12 @@ export default class HLOCli {
     /**
      * Cache the user token.
      */
-    private userToken: string;
+    private readonly userToken: string;
 
     /**
      * Create a new CLI instance.
      *
+     * @param userToken
      * @param accessToken Access token for the HeroLabl Online API.
      */
     constructor(userToken: string, accessToken: string) {
@@ -86,6 +88,7 @@ export default class HLOCli {
                 ]
             }]) as MainLoopResponse;
 
+            // noinspection FallThroughInSwitchStatementJS
             switch (response.action) {
                 case Actions.EXIT:
                     process.exit(0);
